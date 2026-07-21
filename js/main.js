@@ -20,7 +20,7 @@ const navObserver = new IntersectionObserver(
 sections.forEach((section) => navObserver.observe(section));
 
 const revealTargets = document.querySelectorAll(
-  '.stat-tile, .timeline__item, .project-card, .stack__group, .education-card'
+  '.timeline__item, .project-card, .stack__group, .education-card, .interests__list'
 );
 revealTargets.forEach((el) => el.classList.add('reveal'));
 
@@ -36,3 +36,17 @@ const revealObserver = new IntersectionObserver(
   { threshold: 0.15 }
 );
 revealTargets.forEach((el) => revealObserver.observe(el));
+
+document.querySelectorAll('[data-modal-open]').forEach((trigger) => {
+  const dialog = document.getElementById(trigger.dataset.modalOpen);
+  if (dialog) trigger.addEventListener('click', () => dialog.showModal());
+});
+
+document.querySelectorAll('.project-modal').forEach((dialog) => {
+  dialog.querySelectorAll('[data-modal-close]').forEach((btn) => {
+    btn.addEventListener('click', () => dialog.close());
+  });
+  dialog.addEventListener('click', (e) => {
+    if (e.target === dialog) dialog.close();
+  });
+});
