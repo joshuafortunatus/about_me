@@ -7,9 +7,11 @@ Live at: https://joshuafortunatus.github.io/about_me/
 
 ## Structure
 
-- `index.html` — page content (hero, experience, projects, stack, education, contact)
+- `index.html` — page content (hero, experience, projects, stack & skills,
+  education, interests, AI, contact)
 - `css/styles.css` — styling, light/dark theme via `prefers-color-scheme`
-- `js/main.js` — nav scroll-spy, reveal-on-scroll, footer year
+- `js/main.js` — nav scroll-spy, reveal-on-scroll, project detail modals, footer year
+- `images/` — headshot and other page assets
 
 ## Local preview
 
