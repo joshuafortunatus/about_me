@@ -9,3 +9,6 @@ Thumbs.db
 
 # Env / secrets
 .env
+
+# Personal working docs (not part of the site)
+resume.md

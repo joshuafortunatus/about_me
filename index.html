@@ -225,7 +225,7 @@
       <h3 class="project-modal__title">Pay by Bank AOV Lift</h3>
       <div class="project-card__details">
         <div class="detail-block">
-          <h4 class="detail-block__label">The problem</h4>
+          <h4 class="detail-block__label">Problem</h4>
           <ul>
             <li>Industry-wide price compression had AOV falling for years — any dollar-denominated lift metric shrank over time even if PBB's relative advantage stayed constant</li>
             <li>Adopters differed from non-adopters (higher baselines, staggered adoption timing), so naive before/after or adopter-vs-rest comparisons were confounded</li>
@@ -233,7 +233,7 @@
           </ul>
         </div>
         <div class="detail-block">
-          <h4 class="detail-block__label">The approach</h4>
+          <h4 class="detail-block__label">Approach</h4>
           <ul>
             <li>Callaway–Sant'Anna staggered difference-in-differences: each adopter cohort vs. customers who hadn't adopted yet, reported in percentages only</li>
             <li>Dollar outcomes were estimated in logs, so the parallel-trends assumption was about rates of change, not dollars — a proportional market decline canceled out instead of masquerading as a shrinking effect</li>
@@ -241,7 +241,7 @@
           </ul>
         </div>
         <div class="detail-block">
-          <h4 class="detail-block__label">How</h4>
+          <h4 class="detail-block__label">Execution</h4>
           <ul>
             <li>Monthly customer-level panel; tens of thousands of adopters and matched-scale never-adopted controls, stratified and inverse-probability weighted</li>
             <li>Diagnostics as gates, not formalities: pre-trend placebos, anticipation correction, data-quality audits, and a cohort-support check justifying the analysis window</li>
@@ -267,7 +267,7 @@
       <h3 class="project-modal__title">Looker → Hex Migration</h3>
       <div class="project-card__details">
         <div class="detail-block">
-          <h4 class="detail-block__label">The problem</h4>
+          <h4 class="detail-block__label">Problem</h4>
           <ul>
             <li><strong>Poor legacy implementation</strong> — Looker had become a "kitchen sink," trying to be everything for everyone for every use case, instead of focusing on who used the data most and what they were actually trying to answer</li>
             <li><strong>Data fidelity &amp; definitions</strong> — inconsistent metric definitions across dashboards eroded trust in the numbers</li>
@@ -275,7 +275,7 @@
           </ul>
         </div>
         <div class="detail-block">
-          <h4 class="detail-block__label">The approach</h4>
+          <h4 class="detail-block__label">Approach</h4>
           <ul>
             <li>Treated dbt and BI as a single ecosystem, where each layer informs the other, instead of retrofitting BI on top of a legacy model</li>
             <li>Centralized metric definitions in one place with a "narrow waist" approach, so every downstream tool inherits the same source of truth</li>
@@ -283,7 +283,7 @@
           </ul>
         </div>
         <div class="detail-block">
-          <h4 class="detail-block__label">How</h4>
+          <h4 class="detail-block__label">Execution</h4>
           <ul>
             <li>Built context guides so similar questions converge on increasingly deterministic answers</li>
             <li>Version-controlled everything through git</li>
@@ -305,7 +305,7 @@
       <h3 class="project-modal__title">Ad Effectiveness &amp; Elasticity</h3>
       <div class="project-card__details">
         <div class="detail-block">
-          <h4 class="detail-block__label">The problem</h4>
+          <h4 class="detail-block__label">Problem</h4>
           <ul>
             <li>Dispensaries that ran sponsored placements weren't like those that didn't — bigger, faster-growing menus adopted ads first, so any ads-vs-no-ads comparison was confounded from the start</li>
             <li>Before/after comparisons were equally polluted: the whole market moved with holidays, promos, and seasonality, so a dispensary's "lift" was often just everyone's good day</li>
@@ -313,7 +313,7 @@
           </ul>
         </div>
         <div class="detail-block">
-          <h4 class="detail-block__label">The approach</h4>
+          <h4 class="detail-block__label">Approach</h4>
           <ul>
             <li>Two-way fixed-effects panel: every dispensary was compared only to itself (its own ads-on vs. ads-off days), with each calendar day's market-wide baseline estimated and subtracted out</li>
             <li>Two complementary models: a binary on/off comparison for whether active placements mattered, and a log-log impression-elasticity model for whether scaling volume mattered — with diminishing returns built into the functional form</li>
@@ -321,7 +321,7 @@
           </ul>
         </div>
         <div class="detail-block">
-          <h4 class="detail-block__label">How</h4>
+          <h4 class="detail-block__label">Execution</h4>
           <ul>
             <li>Daily dispensary-level panel of sales and ads activity; standard errors clustered by dispensary; tier effects via interaction terms</li>
             <li>Robustness through re-specification: first-differences models at both daily and weekly grain independently reproduced a significant effect in the same range, so the finding wasn't an artifact of one modeling choice</li>
@@ -347,21 +347,21 @@
       <h3 class="project-modal__title">$50K Annual Compute Savings</h3>
       <div class="project-card__details">
         <div class="detail-block">
-          <h4 class="detail-block__label">The problem</h4>
+          <h4 class="detail-block__label">Problem</h4>
           <ul>
             <li>Nightly dbt runtime had more than doubled over the course of a year, quietly eating into the morning reporting window</li>
             <li>Runs were sometimes still finishing when East Coast employees logged on, so they started their day looking at stale data</li>
           </ul>
         </div>
         <div class="detail-block">
-          <h4 class="detail-block__label">The approach</h4>
+          <h4 class="detail-block__label">Approach</h4>
           <ul>
             <li>Identified the long-running models actually driving the runtime growth</li>
             <li>Triaged each one: optimize it for real usage, or deprecate it if it wasn't earning its runtime</li>
           </ul>
         </div>
         <div class="detail-block">
-          <h4 class="detail-block__label">How</h4>
+          <h4 class="detail-block__label">Execution</h4>
           <ul>
             <li>Queried usage logs to find models that were active in the DAG but never actually surfaced to stakeholders in the BI layer, and removed them</li>
             <li>Materialized the largest remaining models as incremental instead of full-refresh</li>
@@ -388,21 +388,21 @@
       <h3 class="project-modal__title">Support Agent Scorecard</h3>
       <div class="project-card__details">
         <div class="detail-block">
-          <h4 class="detail-block__label">The problem</h4>
+          <h4 class="detail-block__label">Problem</h4>
           <ul>
             <li>Support needed one unified view of agent performance, but the team worked across several different platforms to manage customer communication and workload</li>
             <li>Manual reporting existed, but even with templates it took several people and several hours a month to put together — and still had errors</li>
           </ul>
         </div>
         <div class="detail-block">
-          <h4 class="detail-block__label">The approach</h4>
+          <h4 class="detail-block__label">Approach</h4>
           <ul>
             <li>Found a join key that actually held across every system, rather than forcing a data model onto systems that were never built to talk to each other</li>
             <li>Got buy-in on metric definitions before building anything, so the numbers wouldn't get re-litigated after the fact</li>
           </ul>
         </div>
         <div class="detail-block">
-          <h4 class="detail-block__label">How</h4>
+          <h4 class="detail-block__label">Execution</h4>
           <ul>
             <li>Agent email turned out to be the only identifier consistent across every system, so everything anchored on that</li>
             <li>Built an agent-date scaffold with metrics pre-aggregated daily for speed, while keeping the underlying marts detailed enough to drop into a specific ticket, call, or chat when someone needed to check the receipts</li>
