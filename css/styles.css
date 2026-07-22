@@ -490,20 +490,6 @@ h1, h2, h3 { line-height: 1.2; margin: 0; }
 .badge__dot--5 { background: var(--series-5); }
 .badge__dot--6 { background: var(--series-6); }
 
-/* ---------- Stack ---------- */
-
-.stack__group { margin-bottom: 24px; }
-
-.stack__label {
-  font-family: var(--font-mono);
-  font-size: 12.5px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: var(--ink-muted);
-  margin-bottom: 12px;
-}
-
 .pills {
   display: flex;
   flex-wrap: wrap;

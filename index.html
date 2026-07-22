@@ -17,7 +17,7 @@
       <ul class="nav__links">
         <li><a href="#experience">Experience</a></li>
         <li><a href="#projects">Projects</a></li>
-        <li><a href="#stack">Stack</a></li>
+        <li><a href="#stack">Stack &amp; Skills</a></li>
         <li><a href="#education">Education</a></li>
         <li><a href="#interests">Interests</a></li>
         <li><a href="#ai">AI</a></li>
@@ -52,7 +52,7 @@
       </div>
       <p class="hero__lede">
         I lead analytics for cross-functional teams by turning ad hoc questions into
-        dbt-modeled, Hex-served answers, and turning ad hoc experiments into
+        dbt-modeled, self-serve answers, and turning ad hoc experiments into
         rigorous causal reads on product and growth decisions.
       </p>
       <div class="hero__meta">
@@ -86,11 +86,11 @@
           </div>
           <p class="timeline__org">Dutchie</p>
           <ul class="timeline__bullets">
-            <li>Lead analytics for Customer Experience, Product Support, Finance, and Ad Tech teams</li>
-            <li>Own dbt project architecture and BI modeling strategy for company-wide reporting</li>
+            <li>Lead analytics for Ad Tech, Customer Experience, Product Support, and Finance</li>
+            <li>Own dbt project architecture, Hex architecture, and BI modeling strategy for company-wide reporting</li>
+            <li>Perform ad hoc analyses to uncover meaningful trends and improve business decision-making</li>
             <li>Pitched, secured leadership approval for, and led the migration off Looker to Hex — increasing data democratization and cutting BI platform costs by ~50%</li>
             <li>Spearheaded a company-wide A/B experimentation workflow with LaunchDarkly, building the process from initial idea through engineering handoff for implementation</li>
-            <li>Perform ad hoc analyses to uncover meaningful trends and improve business decision-making</li>
           </ul>
         </div>
       </li>
@@ -134,6 +134,35 @@
 
     <div class="projects__grid">
       <article class="project-card">
+        <span class="badge"><i class="badge__dot badge__dot--2"></i>Difference-in-Differences</span>
+        <h3 class="project-card__title">Pay by Bank AOV Lift</h3>
+        <p class="project-card__desc">
+          Used staggered difference-in-differences (Callaway-Sant'Anna) to
+          measure the percentage difference in average order value for
+          consumers using the Pay by Bank product.
+        </p>
+        <button class="project-card__toggle" type="button" data-modal-open="modal-pay-by-bank">
+          Show details
+          <svg viewBox="0 0 20 20" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 7.5 10 13l5-5.5"/></svg>
+        </button>
+      </article>
+
+      <article class="project-card">
+        <span class="badge"><i class="badge__dot badge__dot--5"></i>Platform Migration</span>
+        <h3 class="project-card__title">Looker → Hex Migration</h3>
+        <p class="project-card__desc">
+          Pitched the case for moving off Looker, secured leadership approval,
+          and led the migration to Hex — increasing data democratization
+          through easier self-serve analytics and cutting BI platform costs
+          by roughly 50%.
+        </p>
+        <button class="project-card__toggle" type="button" data-modal-open="modal-looker-hex">
+          Show details
+          <svg viewBox="0 0 20 20" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 7.5 10 13l5-5.5"/></svg>
+        </button>
+      </article>
+
+      <article class="project-card">
         <span class="badge"><i class="badge__dot badge__dot--1"></i>Fixed Effects</span>
         <h3 class="project-card__title">Ad Effectiveness &amp; Elasticity</h3>
         <p class="project-card__desc">
@@ -150,17 +179,13 @@
       </article>
 
       <article class="project-card">
-        <span class="badge"><i class="badge__dot badge__dot--2"></i>Difference-in-Differences</span>
-        <h3 class="project-card__title">Pay by Bank AOV Lift</h3>
+        <span class="badge"><i class="badge__dot badge__dot--6"></i>Experimentation</span>
+        <h3 class="project-card__title">A/B Experimentation Workflow</h3>
         <p class="project-card__desc">
-          Used staggered difference-in-differences (Callaway-Sant'Anna) to
-          measure the percentage difference in average order value for
-          consumers using the Pay by Bank product.
+          Spearheaded a company-wide experimentation workflow built on
+          LaunchDarkly, defining the process from initial idea through
+          engineering handoff for implementation.
         </p>
-        <button class="project-card__toggle" type="button" data-modal-open="modal-pay-by-bank">
-          Show details
-          <svg viewBox="0 0 20 20" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 7.5 10 13l5-5.5"/></svg>
-        </button>
       </article>
 
       <article class="project-card">
@@ -185,33 +210,54 @@
           platforms, replacing manual monthly reporting and eliminating 55+
           hours of manual work per month.
         </p>
-      </article>
-
-      <article class="project-card">
-        <span class="badge"><i class="badge__dot badge__dot--5"></i>Platform Migration</span>
-        <h3 class="project-card__title">Looker → Hex Migration</h3>
-        <p class="project-card__desc">
-          Pitched the case for moving off Looker, secured leadership approval,
-          and led the migration to Hex — increasing data democratization
-          through easier self-serve analytics and cutting BI platform costs
-          by roughly 50%.
-        </p>
-        <button class="project-card__toggle" type="button" data-modal-open="modal-looker-hex">
+        <button class="project-card__toggle" type="button" data-modal-open="modal-support-scorecard">
           Show details
           <svg viewBox="0 0 20 20" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 7.5 10 13l5-5.5"/></svg>
         </button>
       </article>
-
-      <article class="project-card">
-        <span class="badge"><i class="badge__dot badge__dot--6"></i>Experimentation</span>
-        <h3 class="project-card__title">A/B Experimentation Workflow</h3>
-        <p class="project-card__desc">
-          Spearheaded a company-wide experimentation workflow built on
-          LaunchDarkly, defining the process from initial idea through
-          engineering handoff for implementation.
-        </p>
-      </article>
     </div>
+
+    <dialog id="modal-pay-by-bank" class="project-modal">
+      <button class="project-modal__close" type="button" data-modal-close aria-label="Close">
+        <svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 5l10 10M15 5 5 15"/></svg>
+      </button>
+      <span class="badge"><i class="badge__dot badge__dot--2"></i>Difference-in-Differences</span>
+      <h3 class="project-modal__title">Pay by Bank AOV Lift</h3>
+      <div class="project-card__details">
+        <div class="detail-block">
+          <h4 class="detail-block__label">The problem</h4>
+          <ul>
+            <li>Industry-wide price compression had AOV falling for years — any dollar-denominated lift metric shrank over time even if PBB's relative advantage stayed constant</li>
+            <li>Adopters differed from non-adopters (higher baselines, staggered adoption timing), so naive before/after or adopter-vs-rest comparisons were confounded</li>
+            <li>"Order frequency" was invisible to standard panels: measuring only the months a customer shopped couldn't distinguish "shopped more often" from "shopped the same, in fewer months"</li>
+          </ul>
+        </div>
+        <div class="detail-block">
+          <h4 class="detail-block__label">The approach</h4>
+          <ul>
+            <li>Callaway–Sant'Anna staggered difference-in-differences: each adopter cohort vs. customers who hadn't adopted yet, reported in percentages only</li>
+            <li>Dollar outcomes were estimated in logs, so the parallel-trends assumption was about rates of change, not dollars — a proportional market decline canceled out instead of masquerading as a shrinking effect</li>
+            <li>Effects were averaged over a fixed two-year post-adoption window with bootstrap confidence intervals; the adoption month itself was excluded (it mechanically contained the first PBB order)</li>
+          </ul>
+        </div>
+        <div class="detail-block">
+          <h4 class="detail-block__label">How</h4>
+          <ul>
+            <li>Monthly customer-level panel; tens of thousands of adopters and matched-scale never-adopted controls, stratified and inverse-probability weighted</li>
+            <li>Diagnostics as gates, not formalities: pre-trend placebos, anticipation correction, data-quality audits, and a cohort-support check justifying the analysis window</li>
+            <li>The frequency estimate was stress-tested with placebo adoptions — never-adopters given fake adoption dates reproduced the raw estimate almost exactly with zero treatment, exposing it as a customer-lifecycle artifact rather than a PBB effect</li>
+          </ul>
+        </div>
+        <div class="detail-block">
+          <h4 class="detail-block__label">Outcome</h4>
+          <ul>
+            <li>Statistically significant lift in order value, and a larger lift in spend within the months customers shopped — both robust to price compression by construction</li>
+            <li>No detectable change in order frequency — the same order count consolidated into fewer, denser shopping months</li>
+            <li>Net: total customer spend rose modestly (on the order of the basket-size effect); the larger per-shopping-month figure described concentration, not new dollars</li>
+          </ul>
+        </div>
+      </div>
+    </dialog>
 
     <dialog id="modal-looker-hex" class="project-modal">
       <button class="project-modal__close" type="button" data-modal-close aria-label="Close">
@@ -223,17 +269,17 @@
         <div class="detail-block">
           <h4 class="detail-block__label">The problem</h4>
           <ul>
-            <li><strong>Poor legacy implementation</strong> — Looker had become a "kitchen sink," trying to be everything for everyone for every use case, instead of focusing on who used the data most and what they were actually trying to answer.</li>
-            <li><strong>Data fidelity &amp; definitions</strong> — inconsistent metric definitions across dashboards eroded trust in the numbers.</li>
-            <li><strong>Blocker to exploratory analysis</strong> — even simple questions were too slow to answer, throttling stakeholders who already had deep domain knowledge from self-serving.</li>
+            <li><strong>Poor legacy implementation</strong> — Looker had become a "kitchen sink," trying to be everything for everyone for every use case, instead of focusing on who used the data most and what they were actually trying to answer</li>
+            <li><strong>Data fidelity &amp; definitions</strong> — inconsistent metric definitions across dashboards eroded trust in the numbers</li>
+            <li><strong>Blocker to exploratory analysis</strong> — even simple questions were too slow to answer, throttling stakeholders who already had deep domain knowledge from self-serving</li>
           </ul>
         </div>
         <div class="detail-block">
           <h4 class="detail-block__label">The approach</h4>
           <ul>
-            <li>Treated dbt and BI as a single ecosystem, where each layer informs the other, instead of retrofitting BI on top of a legacy model.</li>
-            <li>Centralized metric definitions in one place with a "narrow waist" approach, so every downstream tool inherits the same source of truth.</li>
-            <li>Layered AI-assisted answers on top of that narrow waist — with the right context, an agent can resolve low-to-medium complexity questions for stakeholders who already have deep domain knowledge, closing the gap on simple-but-slow asks.</li>
+            <li>Treated dbt and BI as a single ecosystem, where each layer informs the other, instead of retrofitting BI on top of a legacy model</li>
+            <li>Centralized metric definitions in one place with a "narrow waist" approach, so every downstream tool inherits the same source of truth</li>
+            <li>Layered AI-assisted answers on top of that narrow waist — with the right context, an agent can resolve low-to-medium complexity questions for stakeholders who already have deep domain knowledge, closing the gap on simple-but-slow asks</li>
           </ul>
         </div>
         <div class="detail-block">
@@ -251,47 +297,6 @@
       </div>
     </dialog>
 
-    <dialog id="modal-dbt-optimization" class="project-modal">
-      <button class="project-modal__close" type="button" data-modal-close aria-label="Close">
-        <svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 5l10 10M15 5 5 15"/></svg>
-      </button>
-      <span class="badge"><i class="badge__dot badge__dot--3"></i>dbt Optimization</span>
-      <h3 class="project-modal__title">$50K Annual Compute Savings</h3>
-      <div class="project-card__details">
-        <div class="detail-block">
-          <h4 class="detail-block__label">The problem</h4>
-          <ul>
-            <li>Nightly dbt runtime had more than doubled over the course of a year, quietly eating into the morning reporting window.</li>
-            <li>Runs were sometimes still finishing when East Coast employees logged on, so they started their day looking at stale data.</li>
-          </ul>
-        </div>
-        <div class="detail-block">
-          <h4 class="detail-block__label">The approach</h4>
-          <ul>
-            <li>Identified the long-running models actually driving the runtime growth.</li>
-            <li>Triaged each one: optimize it for real usage, or deprecate it if it wasn't earning its runtime.</li>
-          </ul>
-        </div>
-        <div class="detail-block">
-          <h4 class="detail-block__label">How</h4>
-          <ul>
-            <li>Queried usage logs to find models that were active in the DAG but never actually surfaced to stakeholders in the BI layer, and removed them.</li>
-            <li>Materialized the largest remaining models as incremental instead of full-refresh.</li>
-            <li>Rebuilt remaining models around actual use cases and their primary stakeholders.</li>
-            <li>Right-sized warehouse compute for the models that still needed it.</li>
-          </ul>
-        </div>
-        <div class="detail-block">
-          <h4 class="detail-block__label">Outcome</h4>
-          <ul>
-            <li>Cut nightly runtime by 40%.</li>
-            <li>Cut compute costs by $50K annually.</li>
-            <li>Established more rigorous modeling guidelines to keep the DAG from bloating again.</li>
-          </ul>
-        </div>
-      </div>
-    </dialog>
-
     <dialog id="modal-ad-effectiveness" class="project-modal">
       <button class="project-modal__close" type="button" data-modal-close aria-label="Close">
         <svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 5l10 10M15 5 5 15"/></svg>
@@ -302,75 +307,113 @@
         <div class="detail-block">
           <h4 class="detail-block__label">The problem</h4>
           <ul>
-            <li>Dispensaries that run sponsored placements aren't like those that don't — bigger, faster-growing menus adopt ads first, so any ads-vs-no-ads comparison is confounded from the start.</li>
-            <li>Before/after comparisons are equally polluted: the whole market moves with holidays, promos, and seasonality, so a dispensary's "lift" may just be everyone's good day.</li>
-            <li>"Does turning ads on matter?" and "does spending more matter?" are different questions that a single model can't answer cleanly.</li>
+            <li>Dispensaries that ran sponsored placements weren't like those that didn't — bigger, faster-growing menus adopted ads first, so any ads-vs-no-ads comparison was confounded from the start</li>
+            <li>Before/after comparisons were equally polluted: the whole market moved with holidays, promos, and seasonality, so a dispensary's "lift" was often just everyone's good day</li>
+            <li>"Did turning ads on matter?" and "did spending more matter?" were different questions that a single model couldn't answer cleanly</li>
           </ul>
         </div>
         <div class="detail-block">
           <h4 class="detail-block__label">The approach</h4>
           <ul>
-            <li>Two-way fixed-effects panel: every dispensary is compared only to itself (its own ads-on vs. ads-off days), with each calendar day's market-wide baseline estimated and subtracted out.</li>
-            <li>Two complementary models: a binary on/off comparison for whether active placements matter, and a log-log impression-elasticity model for whether scaling volume matters — with diminishing returns built into the functional form.</li>
-            <li>Effects estimated overall and by customer tier, since a pooled average can hide who actually benefits.</li>
+            <li>Two-way fixed-effects panel: every dispensary was compared only to itself (its own ads-on vs. ads-off days), with each calendar day's market-wide baseline estimated and subtracted out</li>
+            <li>Two complementary models: a binary on/off comparison for whether active placements mattered, and a log-log impression-elasticity model for whether scaling volume mattered — with diminishing returns built into the functional form</li>
+            <li>Effects were estimated overall and by customer tier, since a pooled average could hide who actually benefited</li>
           </ul>
         </div>
         <div class="detail-block">
           <h4 class="detail-block__label">How</h4>
           <ul>
-            <li>Daily dispensary-level panel of sales and ads activity; standard errors clustered by dispensary; tier effects via interaction terms.</li>
-            <li>Robustness through re-specification: first-differences models at both daily and weekly grain independently reproduce a significant effect in the same range, so the finding isn't an artifact of one modeling choice.</li>
-            <li>Causality bounded honestly: the design removes fixed dispensary traits and market-wide shocks, but can't rule out simultaneous changes (a promo launched alongside ads) — flagged explicitly, with a user-level A/B test named as the definitive follow-up.</li>
+            <li>Daily dispensary-level panel of sales and ads activity; standard errors clustered by dispensary; tier effects via interaction terms</li>
+            <li>Robustness through re-specification: first-differences models at both daily and weekly grain independently reproduced a significant effect in the same range, so the finding wasn't an artifact of one modeling choice</li>
+            <li>Causality bounded honestly: the design removed fixed dispensary traits and market-wide shocks, but couldn't rule out simultaneous changes (a promo launched alongside ads) — flagged explicitly, with a user-level A/B test named as the definitive follow-up</li>
           </ul>
         </div>
         <div class="detail-block">
           <h4 class="detail-block__label">Outcome</h4>
           <ul>
-            <li>Dispensaries see significantly more GMV and more orders on days sponsored placements are active, with essentially no change in basket size — ads convert more browsers into buyers rather than making buyers spend more.</li>
-            <li>More impressions drive more revenue with diminishing returns, and the effect is significant in every tier — including the smallest dispensaries, where the blunt on/off signal alone was too noisy to detect.</li>
-            <li>Larger dispensaries show the smallest incremental returns to scaling impressions, consistent with a higher baseline that's harder to move.</li>
+            <li>Dispensaries saw significantly more GMV and more orders on days sponsored placements were active, with essentially no change in basket size — ads converted more browsers into buyers rather than making buyers spend more</li>
+            <li>More impressions drove more revenue with diminishing returns, and the effect was significant in every tier — including the smallest dispensaries, where the blunt on/off signal alone was too noisy to detect</li>
+            <li>Larger dispensaries showed the smallest incremental returns to scaling impressions, consistent with a higher baseline that was harder to move</li>
           </ul>
         </div>
       </div>
     </dialog>
 
-    <dialog id="modal-pay-by-bank" class="project-modal">
+    <dialog id="modal-dbt-optimization" class="project-modal">
       <button class="project-modal__close" type="button" data-modal-close aria-label="Close">
         <svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 5l10 10M15 5 5 15"/></svg>
       </button>
-      <span class="badge"><i class="badge__dot badge__dot--2"></i>Difference-in-Differences</span>
-      <h3 class="project-modal__title">Pay by Bank AOV Lift</h3>
+      <span class="badge"><i class="badge__dot badge__dot--3"></i>dbt Optimization</span>
+      <h3 class="project-modal__title">$50K Annual Compute Savings</h3>
       <div class="project-card__details">
         <div class="detail-block">
           <h4 class="detail-block__label">The problem</h4>
           <ul>
-            <li>Industry-wide price compression has AOV falling for years — any dollar-denominated lift metric shrinks over time even if PBB's relative advantage is constant.</li>
-            <li>Adopters differ from non-adopters (higher baselines, staggered adoption timing), so naive before/after or adopter-vs-rest comparisons are confounded.</li>
-            <li>"Order frequency" is invisible to standard panels: measuring only the months a customer shops can't distinguish "shops more often" from "shops the same, in fewer months."</li>
+            <li>Nightly dbt runtime had more than doubled over the course of a year, quietly eating into the morning reporting window</li>
+            <li>Runs were sometimes still finishing when East Coast employees logged on, so they started their day looking at stale data</li>
           </ul>
         </div>
         <div class="detail-block">
           <h4 class="detail-block__label">The approach</h4>
           <ul>
-            <li>Callaway–Sant'Anna staggered difference-in-differences: each adopter cohort vs. customers who hadn't adopted yet, reported in percentages only.</li>
-            <li>Dollar outcomes estimated in logs, so the parallel-trends assumption is about rates of change, not dollars — a proportional market decline cancels out instead of masquerading as a shrinking effect.</li>
-            <li>Effects averaged over a fixed two-year post-adoption window with bootstrap confidence intervals; the adoption month itself excluded (mechanically contains the first PBB order).</li>
+            <li>Identified the long-running models actually driving the runtime growth</li>
+            <li>Triaged each one: optimize it for real usage, or deprecate it if it wasn't earning its runtime</li>
           </ul>
         </div>
         <div class="detail-block">
           <h4 class="detail-block__label">How</h4>
           <ul>
-            <li>Monthly customer-level panel; tens of thousands of adopters and matched-scale never-adopted controls, stratified and inverse-probability weighted.</li>
-            <li>Diagnostics as gates, not formalities: pre-trend placebos, anticipation correction, data-quality audits, and a cohort-support check justifying the analysis window.</li>
-            <li>The frequency estimate was stress-tested with placebo adoptions — never-adopters given fake adoption dates reproduced the raw estimate almost exactly with zero treatment, exposing it as a customer-lifecycle artifact rather than a PBB effect.</li>
+            <li>Queried usage logs to find models that were active in the DAG but never actually surfaced to stakeholders in the BI layer, and removed them</li>
+            <li>Materialized the largest remaining models as incremental instead of full-refresh</li>
+            <li>Rebuilt remaining models around actual use cases and their primary stakeholders</li>
+            <li>Right-sized warehouse compute for the models that still needed it</li>
           </ul>
         </div>
         <div class="detail-block">
           <h4 class="detail-block__label">Outcome</h4>
           <ul>
-            <li>Statistically significant lift in order value, and a larger lift in spend within the months customers shop — both robust to price compression by construction.</li>
-            <li>No detectable change in order frequency — the same order count consolidates into fewer, denser shopping months.</li>
-            <li>Net: total customer spend rises modestly (on the order of the basket-size effect); the larger per-shopping-month figure describes concentration, not new dollars.</li>
+            <li>Cut nightly runtime by 40%</li>
+            <li>Cut compute costs by $50K annually</li>
+            <li>Established more rigorous modeling guidelines to keep the DAG from bloating again</li>
+          </ul>
+        </div>
+      </div>
+    </dialog>
+
+    <dialog id="modal-support-scorecard" class="project-modal">
+      <button class="project-modal__close" type="button" data-modal-close aria-label="Close">
+        <svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 5l10 10M15 5 5 15"/></svg>
+      </button>
+      <span class="badge"><i class="badge__dot badge__dot--4"></i>Automation</span>
+      <h3 class="project-modal__title">Support Agent Scorecard</h3>
+      <div class="project-card__details">
+        <div class="detail-block">
+          <h4 class="detail-block__label">The problem</h4>
+          <ul>
+            <li>Support needed one unified view of agent performance, but the team worked across several different platforms to manage customer communication and workload</li>
+            <li>Manual reporting existed, but even with templates it took several people and several hours a month to put together — and still had errors</li>
+          </ul>
+        </div>
+        <div class="detail-block">
+          <h4 class="detail-block__label">The approach</h4>
+          <ul>
+            <li>Found a join key that actually held across every system, rather than forcing a data model onto systems that were never built to talk to each other</li>
+            <li>Got buy-in on metric definitions before building anything, so the numbers wouldn't get re-litigated after the fact</li>
+          </ul>
+        </div>
+        <div class="detail-block">
+          <h4 class="detail-block__label">How</h4>
+          <ul>
+            <li>Agent email turned out to be the only identifier consistent across every system, so everything anchored on that</li>
+            <li>Built an agent-date scaffold with metrics pre-aggregated daily for speed, while keeping the underlying marts detailed enough to drop into a specific ticket, call, or chat when someone needed to check the receipts</li>
+          </ul>
+        </div>
+        <div class="detail-block">
+          <h4 class="detail-block__label">Outcome</h4>
+          <ul>
+            <li>Eliminated 55+ hours of manual reporting a month</li>
+            <li>More trustworthy numbers than the manual process ever produced</li>
+            <li>Went beyond what Zendesk's own reporting could do, with much tighter metric definitions to match</li>
           </ul>
         </div>
       </div>
@@ -378,40 +421,31 @@
   </section>
 
   <section id="stack" class="section">
-    <h2 class="section__title"><span class="section__index">03</span> Stack</h2>
-
-    <div class="stack">
-      <div class="stack__group">
-        <h3 class="stack__label">Proficient</h3>
-        <div class="pills">
-          <span class="pill">SQL</span>
-          <span class="pill">Snowflake</span>
-          <span class="pill">Postgres</span>
-          <span class="pill">BigQuery</span>
-          <span class="pill">Fivetran</span>
-          <span class="pill">dbt</span>
-          <span class="pill">Looker</span>
-          <span class="pill">Hex</span>
-          <span class="pill">LaunchDarkly</span>
-          <span class="pill">Metabase</span>
-          <span class="pill">Data Studio</span>
-          <span class="pill">git</span>
-        </div>
-      </div>
-      <div class="stack__group">
-        <h3 class="stack__label">Familiar</h3>
-        <div class="pills">
-          <span class="pill">Python</span>
-          <span class="pill">pandas</span>
-          <span class="pill">polars</span>
-          <span class="pill">plotly</span>
-          <span class="pill">matplotlib</span>
-          <span class="pill">numpy</span>
-          <span class="pill">GCP</span>
-          <span class="pill">Difference-in-Differences</span>
-          <span class="pill">Fixed Effects</span>
-        </div>
-      </div>
+    <h2 class="section__title"><span class="section__index">03</span> Stack &amp; Skills</h2>
+    <div class="pills">
+      <span class="pill">SQL</span>
+      <span class="pill">dbt</span>
+      <span class="pill">Snowflake</span>
+      <span class="pill">Hex</span>
+      <span class="pill">Looker</span>
+      <span class="pill">Fivetran</span>
+      <span class="pill">Causal Inference</span>
+      <span class="pill">Difference-in-Differences</span>
+      <span class="pill">A/B Experimentation</span>
+      <span class="pill">Postgres</span>
+      <span class="pill">BigQuery</span>
+      <span class="pill">LaunchDarkly</span>
+      <span class="pill">Metabase</span>
+      <span class="pill">Data Studio</span>
+      <span class="pill">git</span>
+      <span class="pill">Python</span>
+      <span class="pill">pandas</span>
+      <span class="pill">polars</span>
+      <span class="pill">plotly</span>
+      <span class="pill">matplotlib</span>
+      <span class="pill">numpy</span>
+      <span class="pill">GCP</span>
+      <span class="pill">Fixed Effects</span>
     </div>
   </section>
 
