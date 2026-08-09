@@ -50,3 +50,49 @@ document.querySelectorAll('.project-modal').forEach((dialog) => {
     if (e.target === dialog) dialog.close();
   });
 });
+
+(async () => {
+  const subtitle = document.getElementById('gh-subtitle');
+  const monthsEl = document.getElementById('gh-months');
+  const gridEl = document.getElementById('gh-grid');
+  if (!subtitle || !monthsEl || !gridEl) return;
+
+  const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+  try {
+    const res = await fetch('data/gh-contributions.json');
+    if (!res.ok) throw new Error(`status ${res.status}`);
+    const data = await res.json();
+    const days = data.contributions;
+
+    const weeks = [];
+    for (let i = 0; i < days.length; i += 7) weeks.push(days.slice(i, i + 7));
+
+    monthsEl.style.gridTemplateColumns = `repeat(${weeks.length}, 10px)`;
+    weeks.forEach((week, i) => {
+      const firstOfMonth = week.find((d) => Number(d.date.slice(-2)) === 1);
+      const label = firstOfMonth
+        ? monthNames[Number(firstOfMonth.date.slice(5, 7)) - 1]
+        : i === 0
+          ? monthNames[Number(week[0].date.slice(5, 7)) - 1]
+          : '';
+      const span = document.createElement('span');
+      span.style.gridColumn = String(i + 1);
+      span.textContent = label;
+      monthsEl.appendChild(span);
+    });
+
+    days.forEach((day) => {
+      const cell = document.createElement('span');
+      cell.className = `gh-cell gh-cell--${day.level}`;
+      const label = day.count === 1 ? '1 contribution' : `${day.count} contributions`;
+      cell.title = `${label} on ${day.date}`;
+      gridEl.appendChild(cell);
+    });
+
+    const total = data.total.lastYear;
+    subtitle.textContent = `${total.toLocaleString()} contributions in the last year`;
+  } catch (err) {
+    subtitle.textContent = 'Could not load contribution activity — see the profile link below.';
+  }
+})();
