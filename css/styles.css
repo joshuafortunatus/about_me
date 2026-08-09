@@ -463,6 +463,12 @@ h1, h2, h3 { line-height: 1.2; margin: 0; }
 
 .project-card__toggle:hover { text-decoration: underline; }
 
+.project-card__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
 .project-card__link {
   display: inline-flex;
   align-items: center;
