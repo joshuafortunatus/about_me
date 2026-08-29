@@ -168,15 +168,17 @@
       </article>
 
       <article class="project-card">
-        <span class="badge"><i class="badge__dot badge__dot--5"></i>Platform Migration</span>
-        <h3 class="project-card__title">Looker → Hex Migration</h3>
+        <span class="badge"><i class="badge__dot badge__dot--6"></i>Data Modeling</span>
+        <h3 class="project-card__title">Dutchie Connect DAG Rebuild</h3>
         <p class="project-card__desc">
-          Pitched the case for moving off Looker, secured leadership approval,
-          and led the migration to Hex — increasing data democratization
-          through easier self-serve analytics and cutting BI platform costs
-          by roughly 50%.
+          Dutchie Connect needed to show brands consistent sales and inventory
+          performance across every connected retailer, but the DAG behind it
+          had drifted from the business's real definitions. Rebuilt around a
+          single "narrow waist" mart that owns all definitional logic, so
+          every downstream model — and the product it feeds — ties out from
+          one source of truth.
         </p>
-        <button class="project-card__toggle" type="button" data-modal-open="modal-looker-hex">
+        <button class="project-card__toggle" type="button" data-modal-open="modal-dutchie-connect">
           Show details
           <svg viewBox="0 0 20 20" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 7.5 10 13l5-5.5"/></svg>
         </button>
@@ -193,6 +195,21 @@
           inventory decisions.
         </p>
         <button class="project-card__toggle" type="button" data-modal-open="modal-ad-effectiveness">
+          Show details
+          <svg viewBox="0 0 20 20" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 7.5 10 13l5-5.5"/></svg>
+        </button>
+      </article>
+
+      <article class="project-card">
+        <span class="badge"><i class="badge__dot badge__dot--5"></i>Platform Migration</span>
+        <h3 class="project-card__title">Looker → Hex Migration</h3>
+        <p class="project-card__desc">
+          Pitched the case for moving off Looker, secured leadership approval,
+          and led the migration to Hex — increasing data democratization
+          through easier self-serve analytics and cutting BI platform costs
+          by roughly 50%.
+        </p>
+        <button class="project-card__toggle" type="button" data-modal-open="modal-looker-hex">
           Show details
           <svg viewBox="0 0 20 20" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 7.5 10 13l5-5.5"/></svg>
         </button>
@@ -269,40 +286,47 @@
       </div>
     </dialog>
 
-    <dialog id="modal-looker-hex" class="project-modal">
+    <dialog id="modal-dutchie-connect" class="project-modal">
       <button class="project-modal__close" type="button" data-modal-close aria-label="Close">
         <svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 5l10 10M15 5 5 15"/></svg>
       </button>
-      <span class="badge"><i class="badge__dot badge__dot--5"></i>Platform Migration</span>
-      <h3 class="project-modal__title">Looker → Hex Migration</h3>
+      <span class="badge"><i class="badge__dot badge__dot--6"></i>Data Modeling</span>
+      <h3 class="project-modal__title">Dutchie Connect DAG Rebuild</h3>
       <div class="project-card__details">
         <div class="detail-block">
           <h4 class="detail-block__label">Problem</h4>
           <ul>
-            <li><strong>Poor legacy implementation</strong> — Looker had become a "kitchen sink," trying to be everything for everyone for every use case, instead of focusing on who used the data most and what they were actually trying to answer</li>
-            <li><strong>Data fidelity &amp; definitions</strong> — inconsistent metric definitions across dashboards eroded trust in the numbers</li>
-            <li><strong>Blocker to exploratory analysis</strong> — even simple questions were too slow to answer, throttling stakeholders who already had deep domain knowledge from self-serving</li>
+            <li>Dutchie Connect surfaces brand-level sales and inventory performance across every connected retailer, but the original DAG was built by engineers unfamiliar with dbt best practices — logical inconsistencies, lineage violations, and data drift</li>
+            <li>Open business question: could the existing data support Connect's launch requirements, or did it need a ground-up rebuild</li>
+            <li>Legacy and novel sales and inventory definitions had never been formally reconciled</li>
+            <li>Connect needed specific data surfaced with consistent hygiene applied everywhere it appeared across brand-facing performance views</li>
           </ul>
         </div>
         <div class="detail-block">
           <h4 class="detail-block__label">Approach</h4>
           <ul>
-            <li>Treated dbt and BI as a single ecosystem, where each layer informs the other, instead of retrofitting BI on top of a legacy model</li>
-            <li>Centralized metric definitions in one place with a "narrow waist" approach, so every downstream tool inherits the same source of truth</li>
-            <li>Layered AI-assisted answers on top of that narrow waist — with the right context, an agent can resolve low-to-medium complexity questions for stakeholders who already have deep domain knowledge, closing the gap on simple-but-slow asks</li>
+            <li>Partnered with stakeholders to align legacy and novel sales and inventory definitions, documented in Confluence as the source of truth</li>
+            <li>Audited the existing code against those definitions and found fanout, model-to-model inconsistencies, and missed opportunities for modularity</li>
+            <li>Working with the engineer owning API design, agreed to pre-aggregate metrics in dbt rather than compute components client-side</li>
+            <li>Took a "narrow waist" approach: one mart owns all definitional logic and hygiene, and every downstream model inherits from it</li>
           </ul>
         </div>
         <div class="detail-block">
           <h4 class="detail-block__label">Execution</h4>
           <ul>
-            <li>Built context guides so similar questions converge on increasingly deterministic answers</li>
-            <li>Version-controlled everything through git</li>
-            <li>Ran hands-on training as adoption rolled out</li>
+            <li>Built the spine mart to encapsulate the agreed-upon definitions and hygiene rules exactly once</li>
+            <li>Reduced downstream models to simple aggregations at different grains (brand, retailer, market), all built on the same upstream ancestor</li>
+            <li>DAG tied out top to bottom, since every model traced back to the same source</li>
           </ul>
         </div>
         <div class="detail-block">
           <h4 class="detail-block__label">Outcome</h4>
-          <p>Overwhelming support for Hex during the trial period, with excitement growing as adoption broadened — more trust in the data, and more collaboration across teams.</p>
+          <ul>
+            <li>Confirmed the data could support Dutchie Connect's launch without a ground-up rebuild</li>
+            <li>Eliminated fanout and lineage violations across the sales and inventory models</li>
+            <li>Numbers reconciled consistently across every grain the product surfaced to brands</li>
+            <li>Established a reusable narrow-waist pattern for future feature builds on the same data</li>
+          </ul>
         </div>
       </div>
     </dialog>
@@ -345,6 +369,44 @@
             <li>More impressions drove more revenue with diminishing returns, and the effect was significant in every tier — including the smallest dispensaries, where the blunt on/off signal alone was too noisy to detect</li>
             <li>Larger dispensaries showed the smallest incremental returns to scaling impressions, consistent with a higher baseline that was harder to move</li>
           </ul>
+        </div>
+      </div>
+    </dialog>
+
+    <dialog id="modal-looker-hex" class="project-modal">
+      <button class="project-modal__close" type="button" data-modal-close aria-label="Close">
+        <svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 5l10 10M15 5 5 15"/></svg>
+      </button>
+      <span class="badge"><i class="badge__dot badge__dot--5"></i>Platform Migration</span>
+      <h3 class="project-modal__title">Looker → Hex Migration</h3>
+      <div class="project-card__details">
+        <div class="detail-block">
+          <h4 class="detail-block__label">Problem</h4>
+          <ul>
+            <li><strong>Poor legacy implementation</strong> — Looker had become a "kitchen sink," trying to be everything for everyone for every use case, instead of focusing on who used the data most and what they were actually trying to answer</li>
+            <li><strong>Data fidelity &amp; definitions</strong> — inconsistent metric definitions across dashboards eroded trust in the numbers</li>
+            <li><strong>Blocker to exploratory analysis</strong> — even simple questions were too slow to answer, throttling stakeholders who already had deep domain knowledge from self-serving</li>
+          </ul>
+        </div>
+        <div class="detail-block">
+          <h4 class="detail-block__label">Approach</h4>
+          <ul>
+            <li>Treated dbt and BI as a single ecosystem, where each layer informs the other, instead of retrofitting BI on top of a legacy model</li>
+            <li>Centralized metric definitions in one place with a "narrow waist" approach, so every downstream tool inherits the same source of truth</li>
+            <li>Layered AI-assisted answers on top of that narrow waist — with the right context, an agent can resolve low-to-medium complexity questions for stakeholders who already have deep domain knowledge, closing the gap on simple-but-slow asks</li>
+          </ul>
+        </div>
+        <div class="detail-block">
+          <h4 class="detail-block__label">Execution</h4>
+          <ul>
+            <li>Built context guides so similar questions converge on increasingly deterministic answers</li>
+            <li>Version-controlled everything through git</li>
+            <li>Ran hands-on training as adoption rolled out</li>
+          </ul>
+        </div>
+        <div class="detail-block">
+          <h4 class="detail-block__label">Outcome</h4>
+          <p>Overwhelming support for Hex during the trial period, with excitement growing as adoption broadened — more trust in the data, and more collaboration across teams.</p>
         </div>
       </div>
     </dialog>
