@@ -49,6 +49,28 @@ document.querySelectorAll('.project-modal').forEach((dialog) => {
   dialog.addEventListener('click', (e) => {
     if (e.target === dialog) dialog.close();
   });
+
+  const choice = dialog.querySelector('[data-tab-choice]');
+  const panels = dialog.querySelectorAll('[data-tabpanel]');
+  if (!choice || !panels.length) return;
+
+  const showChoice = () => {
+    choice.hidden = false;
+    panels.forEach((panel) => { panel.hidden = true; });
+  };
+
+  dialog.querySelectorAll('[data-tab-target]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      choice.hidden = true;
+      panels.forEach((panel) => { panel.hidden = panel.id !== btn.dataset.tabTarget; });
+    });
+  });
+
+  dialog.querySelectorAll('[data-tab-back]').forEach((btn) => {
+    btn.addEventListener('click', showChoice);
+  });
+
+  dialog.addEventListener('close', showChoice);
 });
 
 (async () => {
