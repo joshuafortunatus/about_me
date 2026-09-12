@@ -565,7 +565,7 @@ h1, h2, h3 { line-height: 1.2; margin: 0; }
 }
 
 .project-modal__back {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: 4px;
   font-family: var(--font-mono);
